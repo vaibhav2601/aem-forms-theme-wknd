@@ -1,0 +1,36 @@
+
+//== Font
+
+$font-family: Source Sans Pro, sans-serif;
+
+// ====== colors======
+$dark-gray: rgb(22, 22, 22);
+$gray: rgb(109, 109, 109);
+$light-gray: #969696;
+
+
+$very-light-gray: #ddd;
+
+$bg-gray: #eee;
+$white: #fff;
+$error: #eb3c36;
+$light-error: rgba(235,60,54,0.05);
+$success: #23b482;
+$silver: #ccc;
+$panel-bg-color: #efefef;
+$wizard-bg-color: #fafafa;
+
+
+
+// ====== space ======
+$field-margin: .25rem 0;
+$label-top-margin: 10px;
+$field-height: 48px;
+$field-padding-left: 12px;
+$error-top-margin: 10px;
+$field-right-margin: 20px;
+$radio-checkbox-gap: 20px;
+
+//== Grid
+
+$max_col: 12;

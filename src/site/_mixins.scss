@@ -1,0 +1,320 @@
+@mixin tab_list {
+    padding: 0;
+    counter-reset: section;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: $space-m 0 $space-s 0;
+    text-transform: uppercase;
+    font-family: SourceSansSemiBold;
+
+}
+
+@mixin default_tab {
+    border: none;
+    height: $tap-height;
+    color: $gray;
+    background-color: white;
+    font-size: $font-m;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    padding: 0 $space-s;
+    line-height: 1;
+
+}
+
+@mixin question_mark {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    background: url(./resources/images/question.svg) center center / cover no-repeat;
+    cursor: pointer;
+    border: none;
+}
+
+
+@mixin component_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+
+    &:has(input:required) label::after {
+        content: "*";
+        color: red;
+        margin-left: $space-xs;
+    }
+
+    &[data-cmp-valid=false]>&__shortdescription {
+        display: none;
+    }
+
+    &[data-cmp-valid=false]>&__errormessage {
+        display: flex;
+        align-items: center;
+        column-gap: $space-xs;
+    }
+
+
+    &[data-cmp-valid=false]>input,
+    &[data-cmp-valid=false]>select {
+        outline: $border-error;
+        border: transparent;
+        background-color: $light-error;
+    }
+}
+
+@mixin tab_panel {
+
+    margin: 0 0 0 0;
+
+}
+
+
+
+
+@mixin tab_active {
+    border: none;
+    color: $dark-gray;
+    background-color: $bg-gray;
+}
+
+@mixin field_label {
+    opacity: 1;
+    color: $dark-gray;
+    padding: 0;
+    font-size: $font-m;
+    pointer-events: none;
+    margin: 0;
+    z-index: 11;
+}
+
+@mixin field_widget {
+    margin: $space-xs 0;
+    border: $border-light;
+    border-color: $very-light-gray;
+    height: $field-height;
+    color: $dark-gray;
+    padding: 0 $space-s;
+    font-size: $font-m;
+    font-family: SourceSans;
+    border-radius: 0;
+    background-color: $white;
+    box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
+
+    &:hover {
+        border-color: $light-gray;
+    }
+
+    &:focus {
+        border-color: transparent !important;
+        background-color: white !important;
+        outline: $focus-outline;
+        outline-width: 2px !important;
+    }
+
+}
+
+@mixin long_description {
+    display: flex;
+    align-items: center;
+    font-size: $font-s;
+    font-weight: bold;
+    padding: $space-s;
+    margin: $space-xs 0 $space-s 0;
+    @include surface();
+    background-color: $white;
+    font-family: SourceSansSemiBold;
+
+    &::before {
+        content: '';
+        background: url(./resources/images/info.svg);
+        margin-right: $space-s;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@mixin short_description {
+    display: flex;
+    position: static;
+    font-size: $font-s;
+    font-family: SourceSansSemiBold;
+    color: $gray;
+    margin: 0;
+
+}
+
+@mixin error_message {
+    display: none;
+    color: $error;
+    font-size: $font-s;
+    font-family: SourceSansSemiBold;
+    margin: 0;
+
+    &::before {
+        background: url(./resources/images/error.svg) no-repeat center;
+        width: 16px;
+        height: 16px;
+        content: '';
+    }
+}
+
+@mixin surface {
+
+    color: $dark-gray;
+    background-color: #f9f9f9;
+    border: $border-light;
+    border-width: 2px;
+    box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
+}
+
+
+
+@mixin primary_button {
+    background: $accent;
+    border: none !important;
+    height: $tap-height;
+    padding: 0 $space-m;
+    cursor: pointer;
+    color: $dark-gray;
+    font-size: $font-m;
+    font-family: SourceSansSemiBold;
+    margin: $space-s 0 !important;
+    text-transform: uppercase;
+    width: 100%;
+    /* Full width by default */
+
+    &:hover {
+        background-color: $dark-accent;
+    }
+
+    @media (min-width: 576px) {
+        /* Small devices (landscape phones) */
+        width: fit-content;
+    }
+
+    @media (min-width: 768px) {
+        /* Tablets */
+        width: fit-content;
+    }
+
+    @media (min-width: 992px) {
+        /* Laptops and desktops */
+        width: fit-content;
+    }
+
+    @media (min-width: 1200px) {
+        /* Large desktops */
+        width: fit-content;
+    }
+}
+
+
+@mixin secondary_button {
+    display: flex;
+    justify-content: center;
+    column-gap: $space-xs;
+    position: static;
+    background: $dark-gray;
+    height: $tap-height;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: -.5;
+    vertical-align: text-bottom;
+    cursor: pointer !important;
+
+    font-size: $font-m;
+    padding: 0 $space-m;
+
+    color: white !important;
+    font-weight: bold;
+    margin: $space-s 0 !important;
+    opacity: 1;
+
+    width: 100%;
+
+
+
+    &:hover {
+        background-color: $gray;
+    }
+
+    @media (min-width: 576px) {
+        /* Small devices (landscape phones) */
+        width: fit-content;
+    }
+
+    @media (min-width: 768px) {
+        /* Tablets */
+        width: fit-content;
+    }
+
+    @media (min-width: 992px) {
+        /* Laptops and desktops */
+        width: fit-content;
+    }
+
+    @media (min-width: 1200px) {
+        /* Large desktops */
+        width: fit-content;
+    }
+
+
+    .cmp-adaptiveform-fileinput &::before {
+        content: '';
+        background: url(./resources/images/upload.svg);
+        width: 16px;
+        height: 16px;
+    }
+
+
+}
+
+@mixin list-container {
+    margin: $space-xs 0;
+
+    &.HORIZONTAL {
+        display: flex;
+        flex-direction: row;
+        column-gap: 0px;
+    }
+
+    &.VERTICAL {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0px;
+    }
+}
+
+@mixin list-item {
+    display: flex;
+    align-items: center;
+    position: static;
+    padding: 0;
+
+    &:hover {
+        background-color: $very-light-gray;
+        cursor: pointer;
+    }
+
+    &:focus-within {
+        outline: $focus-outline;
+    }
+}
+
+@mixin h2 {
+    font-family: SourceSerifBold;
+    font-size: $font-l;
+    color: $dark-gray;
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: $space-s;
+    position: static;
+}

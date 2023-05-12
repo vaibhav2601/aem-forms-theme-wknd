@@ -1,0 +1,26 @@
+//== Defaults
+html,
+body {
+  color: $dark-gray;
+  font-size: $font-m;
+  background-color: white;
+  background: url(./resources/images/background.png);
+  background-position: center center;
+  background-repeat: cover no-repeat;
+  font-family: SourceSans;
+  font-size: 16px;
+
+}
+
+
+
+.aem-Grid {
+  @include generate-grid(default, $max_col);
+}
+
+// Phone breakpoint
+@media (max-width: 768px) {
+  .aem-Grid {
+    @include generate-grid(phone, $max_col);
+  }
+}

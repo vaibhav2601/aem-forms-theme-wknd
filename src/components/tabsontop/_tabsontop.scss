@@ -1,0 +1,58 @@
+.cmp-tabs, .cmp-adaptiveform-wizard, .cmp-accordion{
+  position: relative;
+  margin: $space-l 0;
+  
+}
+.cmp-tabs__tablist{
+  @include tab_list;
+}
+
+.cmp-tabs__tabpanel 
+
+{
+ @include tab_panel;
+ 
+}
+
+.cmp-tabs__tab{
+  @include default_tab;
+}
+.cmp-tabs__tab.cmp-tabs__tab--active{
+  
+  display: flex;
+  align-items: center;
+  @include tab_active;
+  
+  
+}
+
+
+
+.cmp-tabs__tab:hover{
+  color: $dark-gray;
+
+  
+}
+
+// .cmp-tabs__longdescription {
+//   color: $light-gray;
+//   background-color: $very-light-gray;
+//   font-size: $font-s;
+//   padding: 0.125rem 0.5rem;
+//   margin-top: $error-top-margin;
+// }
+// .cmp-tabs__shortdescription {
+//   font-size: $font-s;
+//   margin-top: $error-top-margin;
+// }
+// .cmp-tabs__questionmark{
+//   position: absolute;
+//   display:inline-block;
+//   top:8px;
+//   right:8px;
+//   width:1rem;
+//   height:1rem;
+//   border-radius: 9px;
+//   background: url(./resources/images/question.svg) center center / cover no-repeat,#969696;
+//   cursor : pointer;
+// }

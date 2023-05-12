@@ -1,0 +1,13 @@
+/* ===============Imaget================== */
+.cmp-image{
+  margin: $space-l 0 ;
+}
+.cmp-image__image{
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: inherit;
+  margin: 0 !important;
+
+  padding: 0 !important;
+}

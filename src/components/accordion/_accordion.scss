@@ -1,0 +1,100 @@
+.cmp-accordion__item {
+  border-bottom: $border-light;
+  border-width: 2px;
+}
+
+.cmp-accordion__item:nth-child(2) {
+  border-top: $border-light;
+  border-width: 2px;
+}
+
+
+.cmp-accordion__title {
+  font-weight: bold;
+  display: flex;
+  column-gap: $space-s;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  @include tab_list;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+}
+
+.cmp-accordion__title::after {
+  content: '+';
+  font-size: $font-l;
+}
+
+.cmp-accordion__button {
+  opacity: 1;
+  height: $tap-height !important;
+  font-size: $font-m;
+  background-color: transparent;
+  cursor: pointer;
+  border: none !important;
+  padding: 0 $space-s;
+
+  color: $gray;
+
+}
+
+
+.cmp-accordion__button--expanded {
+  color: $dark-gray;
+  border-bottom: $border-dark;
+  margin-bottom: $space-xs;
+
+}
+
+.cmp-accordion__button--expanded .cmp-accordion__title::after {
+  content: '−';
+}
+
+.cmp-accordion__button--expanded:hover {
+  color: $dark-gray;
+
+}
+
+.cmp-accordion__button:hover {
+  color: $dark-gray;
+  border-color: $dark-gray;
+
+}
+
+
+.cmp-accordion__button:hover>.cmp-accordion__title:before {
+
+  border-color: $dark-gray;
+}
+
+
+
+.cmp-accordion__panel {
+  @include tab_panel;
+}
+
+// .cmp-accordion__longdescription {
+//   color: $light-gray;
+//   background-color: $very-light-gray;
+//   font-size: $font-s;
+//   padding: 0.125rem 0.5rem;
+//   margin-top: $error-top-margin;
+//   margin-bottom: 5px;
+// }
+// .cmp-accordion__shortdescription {
+//   font-size: $font-s;
+//   margin-top: $error-top-margin;
+// }
+// .cmp-accordion__questionmark{
+//   position: absolute;
+//   display:inline-block;
+//   top:8px;
+//   right:8px;
+//   width:1rem;
+//   height:1rem;
+//   border-radius: 9px;
+//   background: url(./resources/images/question.svg) center center / cover no-repeat,#969696;
+//   cursor : pointer;
+// }

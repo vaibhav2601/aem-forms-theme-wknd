@@ -1,0 +1,63 @@
+/* ===============Button================== */
+.cmp-adaptiveform-button {
+  position: relative;
+  border: none !important;
+  margin: $space-s 0;
+}
+
+.cmp-adaptiveform-button__widget {
+  @include primary_button;
+
+}
+
+.cmp-adaptiveform-button__widget[data-cmp-enabled]:not([data-cmp-enabled=true]) {
+  background: $gray;
+  color: $very-light-gray;
+}
+
+button.base {
+  border: none;
+}
+
+.cmp-adaptiveform-button__longdescription {
+  color: $light-gray;
+  background-color: $very-light-gray;
+  font-size: $font-s;
+  padding: 0.125rem 0.5rem;
+  margin-top: $error-top-margin;
+  margin-bottom: 5px;
+}
+
+.cmp-adaptiveform-button__shortdescription {
+  font-size: $font-s;
+  margin-top: $error-top-margin;
+}
+
+.cmp-adaptiveform-button__questionmark {
+  position: absolute;
+  display: inline-block;
+  top: 8px;
+  right: 8px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9px;
+  background: url(./resources/images/question.svg) center center / cover no-repeat, #969696;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .submit {
+    background-color: $white;
+    position: sticky;
+    bottom: 0;
+    z-index: 12;
+    padding: 0 $space-s;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+
+    & button {
+      margin-top: 0
+    }
+
+  }
+}
