@@ -1,320 +1,430 @@
-@mixin tab_list {
-    padding: 0;
-    counter-reset: section;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: $space-m 0 $space-s 0;
-    text-transform: uppercase;
-    font-family: SourceSansSemiBold;
+// container for all components
+@mixin container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-}
+  // change the label color when field is invalid
+  &:has(input:required) &__label::after,
+  &:has(select:required) &__label::after,
+  &:has(textarea:required) &__label::after,
+  div[data-cmp-required=true]>label::after {
+    content: "*";
+    color: red;
+    margin-left: $space-xs;
+  }
 
-@mixin default_tab {
-    border: none;
-    height: $tap-height;
-    color: $gray;
-    background-color: white;
-    font-size: $font-m;
-    align-self: flex-start;
+  &[data-cmp-valid=false]>&__shortdescription {
+    display: none;
+  }
+
+  &[data-cmp-valid=false]>&__errormessage {
     display: flex;
     align-items: center;
-    border-radius: 0;
-    padding: 0 $space-s;
-    line-height: 1;
+    column-gap: $space-xs;
+  }
+
+  // change the border color when field is invalid
+  &[data-cmp-valid=false]>input,
+  &[data-cmp-valid=false]>textarea,
+  &[data-cmp-valid=false]>select {
+    outline: $border-error;
+    border: transparent;
+    background-color: $light-error;
+  }
+}
+
+@mixin label {
+  opacity: 1;
+  color: $secondary;
+  padding: 0;
+  font-size: $font-m;
+  pointer-events: none;
+  margin: 0;
+  z-index: 11;
+  padding-right: $space-s;
+}
+
+@mixin panel-label {
+  font-family: SourceSerifBold;
+  font-size: $font-l;
+  color: $secondary;
+  opacity: 1;
+  margin-top: 0;
+  margin-bottom: $space-s;
+  position: static;
+}
+
+@mixin checkbox-label {
+  min-height: $tap-height;
+  display: flex;
+  align-items: center;
+  color: $secondary;
+  position: static;
+  opacity: 1;
+  padding: 0 $space-s;
+  column-gap: $space-s;
+  pointer-events: all;
+  cursor: pointer;
+  span{
+    flex: 1;
+  }
+}
+
+@mixin widget {
+  margin: $space-xs 0;
+  border: $border-light;
+  border-color: $very-light-gray;
+  height: $field-height;
+  color: $secondary;
+  padding: 0 $space-s;
+  font-size: $font-m;
+  font-family: SourceSans;
+  border-radius: 0;
+  background-color: $white;
+  box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
+
+  &:hover:not([disabled]) {
+    border-color: $light-gray;
+  }
+
+  &:focus:not([disabled]) {
+    border-color: transparent;
+    background-color: $white;
+    outline: $focus-outline;
+    outline-width: 2px;
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+  }
 
 }
 
-@mixin question_mark {
-    position: absolute;
-    display: flex;
-    top: 0;
-    right: 0;
-    padding: 0;
+@mixin long-description {
+  display: flex;
+  align-items: center;
+  font-size: $font-s;
+  font-weight: bold;
+  padding: $space-s;
+  margin: $space-xs 0 $space-s 0;
+  @include surface();
+  background-color: $white;
+  font-family: SourceSansSemiBold;
+
+  &::before {
+    content: '';
+    background: url(./resources/images/info.svg) no-repeat;
+    padding-right: 32px;
     width: 16px;
     height: 16px;
-    background: url(./resources/images/question.svg) center center / cover no-repeat;
-    cursor: pointer;
-    border: none;
-}
+  }
 
-
-@mixin component_container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-
-    &:has(input:required) label::after {
-        content: "*";
-        color: red;
-        margin-left: $space-xs;
-    }
-
-    &[data-cmp-valid=false]>&__shortdescription {
-        display: none;
-    }
-
-    &[data-cmp-valid=false]>&__errormessage {
-        display: flex;
-        align-items: center;
-        column-gap: $space-xs;
-    }
-
-
-    &[data-cmp-valid=false]>input,
-    &[data-cmp-valid=false]>select {
-        outline: $border-error;
-        border: transparent;
-        background-color: $light-error;
-    }
-}
-
-@mixin tab_panel {
-
-    margin: 0 0 0 0;
-
-}
-
-
-
-
-@mixin tab_active {
-    border: none;
-    color: $dark-gray;
-    background-color: $bg-gray;
-}
-
-@mixin field_label {
-    opacity: 1;
-    color: $dark-gray;
-    padding: 0;
-    font-size: $font-m;
-    pointer-events: none;
+  p {
     margin: 0;
-    z-index: 11;
+  }
 }
 
-@mixin field_widget {
-    margin: $space-xs 0;
-    border: $border-light;
-    border-color: $very-light-gray;
-    height: $field-height;
-    color: $dark-gray;
-    padding: 0 $space-s;
-    font-size: $font-m;
-    font-family: SourceSans;
-    border-radius: 0;
-    background-color: $white;
-    box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
-
-    &:hover {
-        border-color: $light-gray;
-    }
-
-    &:focus {
-        border-color: transparent !important;
-        background-color: white !important;
-        outline: $focus-outline;
-        outline-width: 2px !important;
-    }
+@mixin short-description {
+  display: flex;
+  position: static;
+  font-size: $font-s;
+  font-family: SourceSansSemiBold;
+  color: $gray;
+  margin: 0;
 
 }
 
-@mixin long_description {
-    display: flex;
-    align-items: center;
+@mixin question-mark {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background: url(./resources/images/question.svg) center center / cover no-repeat;
+  cursor: pointer;
+  border: none;
+}
+
+@mixin error-message {
+  display: none;
+  color: $error;
+  font-size: $font-s;
+  font-family: SourceSansSemiBold;
+  margin: 0;
+
+  &::before {
+    background: url(./resources/images/error.svg) no-repeat center;
+    width: 16px;
+    height: 16px;
+    content: '';
+    padding-right: 32px;
+  }
+}
+
+// description contains the long-description, short-description, question-mark
+@mixin description {
+  &__longdescription {
+    @include long-description;
+  }
+
+  &__shortdescription {
+    @include short-description;
+  }
+
+  &__questionmark {
+    @include question-mark;
+  }
+}
+
+// input contains the container, label, widget, description, error
+@mixin input {
+  @include container;
+
+  &__label {
+    @include label;
+  }
+
+  &__widget {
+    @include widget;
+  }
+
+  @include description;
+
+  &__errormessage {
+    @include error-message
+  }
+}
+
+@mixin primary-button {
+  background: $primary;
+  border: none;
+  height: $tap-height;
+  padding: 0 $space-m;
+  cursor: pointer;
+  color: $secondary;
+  font-size: $font-m;
+  font-family: SourceSansSemiBold;
+  margin: $space-s 0;
+  text-transform: uppercase;
+  width: 100%;
+
+  /* Full width by default */
+  &:hover {
+    background-color: $dark-primary;
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: default;
+  }
+
+  @media (min-width: 640px) {
+    width: fit-content;
+  }
+}
+
+@mixin secondary-button {
+  display: flex;
+  justify-content: center;
+  column-gap: $space-xs;
+  position: static;
+  background: $secondary;
+  height: $tap-height;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: -.5;
+  vertical-align: text-bottom;
+  cursor: pointer;
+  font-size: $font-m;
+  padding: 0 $space-m;
+  color: white;
+  font-weight: bold;
+  margin: $space-s 0;
+  opacity: 1;
+  width: 100%;
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: default;
+  }
+
+  .cmp-adaptiveform-fileinput &::before {
+    content: '';
+    background: url(./resources/images/upload.svg);
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (min-width: 640px) {
+    width: fit-content;
+  }
+}
+
+// for tabs on top & wizard
+@mixin tab-list {
+  padding: 0;
+  counter-reset: section;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: $space-m 0 $space-s 0;
+  text-transform: uppercase;
+  font-family: SourceSansSemiBold;
+
+}
+
+@mixin tab {
+  border: none;
+  min-height: $tap-height;
+  color: $gray;
+  background-color: white;
+  font-size: $font-m;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  padding: $space-s;
+  line-height: 1;
+
+}
+
+@mixin tab-active {
+  border: none;
+  color: $secondary;
+  background-color: $background-color;
+}
+
+@mixin tab-container {
+  margin: 0;
+}
+
+// wizard tab
+@mixin wizard-tab {
+  @include tab;
+
+  &::before {
+    counter-increment: section;
+    content: counter(section);
+    margin-right: $space-s;
+    background-color: $background-color;
+    padding: 6px;
+    line-height: .56;
+    color: $secondary;
+    text-align: center;
     font-size: $font-s;
     font-weight: bold;
-    padding: $space-s;
-    margin: $space-xs 0 $space-s 0;
-    @include surface();
-    background-color: $white;
-    font-family: SourceSansSemiBold;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &--active {
+    @include tab-active;
 
     &::before {
-        content: '';
-        background: url(./resources/images/info.svg);
-        margin-right: $space-s;
-        width: 16px;
-        height: 16px;
+      counter-increment: section;
+      content: counter(section);
+      margin-right: $space-s;
+      background-color: $secondary;
+      color: $white;
+      padding: 6px;
+      line-height: .56;
+      color: $secondary;
+      text-align: center;
+      font-size: $font-s;
+      font-weight: bold;
     }
+  }
 }
 
-@mixin short_description {
-    display: flex;
+@mixin wizard-next-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $tap-height;
+  position: static;
+  cursor: pointer;
+  @include secondary-button;
+
+  &::before {
+    content: 'Next';
     position: static;
-    font-size: $font-s;
-    font-family: SourceSansSemiBold;
-    color: $gray;
-    margin: 0;
-
+    color: white;
+  }
 }
 
-@mixin error_message {
-    display: none;
-    color: $error;
-    font-size: $font-s;
-    font-family: SourceSansSemiBold;
-    margin: 0;
+@mixin wizard-previous-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $tap-height;
+  position: static;
+  cursor: pointer;
+  @include secondary-button;
 
-    &::before {
-        background: url(./resources/images/error.svg) no-repeat center;
-        width: 16px;
-        height: 16px;
-        content: '';
-    }
-}
-
-@mixin surface {
-
-    color: $dark-gray;
-    background-color: #f9f9f9;
-    border: $border-light;
-    border-width: 2px;
-    box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
-}
-
-
-
-@mixin primary_button {
-    background: $accent;
-    border: none !important;
-    height: $tap-height;
-    padding: 0 $space-m;
-    cursor: pointer;
-    color: $dark-gray;
-    font-size: $font-m;
-    font-family: SourceSansSemiBold;
-    margin: $space-s 0 !important;
-    text-transform: uppercase;
-    width: 100%;
-    /* Full width by default */
-
-    &:hover {
-        background-color: $dark-accent;
-    }
-
-    @media (min-width: 576px) {
-        /* Small devices (landscape phones) */
-        width: fit-content;
-    }
-
-    @media (min-width: 768px) {
-        /* Tablets */
-        width: fit-content;
-    }
-
-    @media (min-width: 992px) {
-        /* Laptops and desktops */
-        width: fit-content;
-    }
-
-    @media (min-width: 1200px) {
-        /* Large desktops */
-        width: fit-content;
-    }
-}
-
-
-@mixin secondary_button {
-    display: flex;
-    justify-content: center;
-    column-gap: $space-xs;
+  &::before {
+    content: 'Previous';
     position: static;
-    background: $dark-gray;
-    height: $tap-height;
-    align-items: center;
-    text-transform: uppercase;
-    letter-spacing: -.5;
-    vertical-align: text-bottom;
-    cursor: pointer !important;
-
-    font-size: $font-m;
-    padding: 0 $space-m;
-
-    color: white !important;
-    font-weight: bold;
-    margin: $space-s 0 !important;
-    opacity: 1;
-
-    width: 100%;
-
-
-
-    &:hover {
-        background-color: $gray;
-    }
-
-    @media (min-width: 576px) {
-        /* Small devices (landscape phones) */
-        width: fit-content;
-    }
-
-    @media (min-width: 768px) {
-        /* Tablets */
-        width: fit-content;
-    }
-
-    @media (min-width: 992px) {
-        /* Laptops and desktops */
-        width: fit-content;
-    }
-
-    @media (min-width: 1200px) {
-        /* Large desktops */
-        width: fit-content;
-    }
-
-
-    .cmp-adaptiveform-fileinput &::before {
-        content: '';
-        background: url(./resources/images/upload.svg);
-        width: 16px;
-        height: 16px;
-    }
-
-
+    color: white;
+  }
 }
 
 @mixin list-container {
-    margin: $space-xs 0;
+  margin: $space-xs 0;
 
-    &.HORIZONTAL {
-        display: flex;
-        flex-direction: row;
-        column-gap: 0px;
-    }
+  &.HORIZONTAL {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0px;
+    flex-wrap: wrap;
+  }
 
-    &.VERTICAL {
-        display: flex;
-        flex-direction: column;
-        row-gap: 0px;
-    }
+  &.VERTICAL {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+  }
 }
 
 @mixin list-item {
-    display: flex;
-    align-items: center;
-    position: static;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  position: static;
+  padding: 0;
+  cursor: pointer;
 
-    &:hover {
-        background-color: $very-light-gray;
-        cursor: pointer;
-    }
+  &:hover {
+    background-color: $very-light-gray;
+    cursor: pointer;
+  }
 
-    &:focus-within {
-        outline: $focus-outline;
-    }
+  &:focus-within {
+    outline: $focus-outline;
+  }
 }
 
-@mixin h2 {
-    font-family: SourceSerifBold;
-    font-size: $font-l;
-    color: $dark-gray;
-    opacity: 1;
-    margin-top: 0;
-    margin-bottom: $space-s;
-    position: static;
+@mixin surface {
+  color: $secondary;
+  background-color: #f9f9f9;
+  border: $border-light;
+  border-width: 2px;
+  box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
+}
+
+div[data-cmp-is="adaptiveFormTextInput"],
+div[data-cmp-is="adaptiveFormNumberInput"],
+div[data-cmp-is="adaptiveFormDatePicker"],
+div[data-cmp-is="adaptiveFormDropDown"],
+div[data-cmp-is='adaptiveFormFileInput'],
+div[data-cmp-is="adaptiveFormRadioButton"],
+div[data-cmp-is="adaptiveFormCheckBoxGroup"] {
+  margin: $space-s 0;
 }

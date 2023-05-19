@@ -1,123 +1,35 @@
-.cmp-adaptiveform-wizard__widget {
-  position: relative;
-}
-
-.cmp-adaptiveform-wizard__tabList {
-  @include tab_list;
-}
-
-.cmp-adaptiveform-wizard__tab::before {
-  counter-increment: section;
-  content: counter(section);
-  margin-right: $space-s;
-  background-color: $bg-gray;
-  padding: 6px;
-  line-height: .56;
-  color: $dark-gray;
-  text-align: center;
-  font-size: $font-s;
-  font-weight: bold;
-}
-
 .cmp-adaptiveform-wizard {
-  margin-top: $space-s
-}
+  position: relative;
+  margin: $space-l 0;
+  margin-top: $space-s;
 
-.cmp-adaptiveform-wizard__wizardpanel {
-  @include tab_panel;
-}
+  &__label {
+    @include panel-label;
+  }
 
+  @include description;
 
-.cmp-adaptiveform-wizard__tab--active::before {
-  counter-increment: section;
-  content: counter(section);
-  margin-right: $space-s;
-  background-color: $dark-gray;
-  color: $white !important;
-  padding: 6px;
-  line-height: .56;
-  color: $dark-gray;
-  text-align: center;
-  font-size: $font-s;
-  font-weight: bold;
-}
+  &__widget {
+    position: relative;
+  }
 
-.cmp-adaptiveform-wizard__tab--active~.cmp-adaptiveform-wizard__tab {}
+  &__tabList {
+    @include tab-list;
+  }
 
-.cmp-adaptiveform-wizard__tab--active~.cmp-adaptiveform-wizard__tab::before {}
+  &__tab {
+    @include wizard-tab;
+  }
 
-.cmp-adaptiveform-wizard .cmp-adaptiveform-wizard__tab {
+  &__wizardpanel {
+    @include tab-container;
+  }
 
-  flex: 1;
-  @include default_tab;
+  &__previousNav {
+    @include wizard-previous-button;
+  }
 
-}
-
-.cmp-adaptiveform-wizard .cmp-adaptiveform-wizard__tab:last-child {
-  margin: 0;
-}
-
-
-.cmp-adaptiveform-wizard .cmp-adaptiveform-wizard__tab--active {
-
-  @include tab_active;
-
-}
-
-
-
-
-
-.cmp-adaptiveform-wizard__previousNav::before {
-
-  content: 'Previous';
-  position: static;
-  color: white !important;
-
-}
-
-.cmp-adaptiveform-wizard__nextNav::before {
-  content: 'Next';
-  position: static;
-  color: white !important;
-
-
-
-}
-
-.cmp-adaptiveform-wizard__previousNav {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  height: $tap-height;
-  position: static;
-  cursor: pointer;
-  @include secondary_button;
-}
-
-
-
-.cmp-adaptiveform-wizard__nextNav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: $tap-height;
-  position: static;
-  cursor: pointer;
-  @include secondary_button;
-
-}
-
-
-
-.cmp-adaptiveform-wizard__longdescription {
-  @include long-description;
-}
-
-.cmp-adaptiveform-wizard__shortdescription {
-  @include short-description;
-}
-
-.cmp-adaptiveform-wizard__questionmark {
-  @include question-mark;
+  &__nextNav {
+    @include wizard-next-button;
+  }
 }

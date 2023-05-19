@@ -1,36 +1,45 @@
-
 //== Font
-
-$font-family: Source Sans Pro, sans-serif;
+$font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // ====== colors======
-$dark-gray: rgb(22, 22, 22);
-$gray: rgb(109, 109, 109);
-$light-gray: #969696;
-
-
-$very-light-gray: #ddd;
-
-$bg-gray: #eee;
-$white: #fff;
+$primary: #ffea00;
+$dark-primary: #ebd800;
+$secondary: rgb(22, 22, 22);
+$background-color: #eee;
 $error: #eb3c36;
 $light-error: rgba(235,60,54,0.05);
-$success: #23b482;
-$silver: #ccc;
-$panel-bg-color: #efefef;
-$wizard-bg-color: #fafafa;
+$white: #fff;
+$gray: rgb(109, 109, 109);
+$light-gray: #969696;
+$very-light-gray: #ddd;
+$disabled-color: $background-color;
 
 
+// ====== font size======
+$font-xl: 2.618em;
+$font-l: 1.618em;
+$font-m: 1rem;
+$font-s: .75rem;
 
 // ====== space ======
-$field-margin: .25rem 0;
-$label-top-margin: 10px;
+$space-xs: 4px;
+$space-s: 16px;
+$space-m: 40px;
+$space-l: 80px;
+$space-xl: 120px;
+$field-radius: 12px;
+$button-radius: 4px;
+$tap-height: 48px;
 $field-height: 48px;
-$field-padding-left: 12px;
-$error-top-margin: 10px;
-$field-right-margin: 20px;
-$radio-checkbox-gap: 20px;
 
 //== Grid
-
 $max_col: 12;
+
+$error_icon: url(./resources/images/error.svg);
+
+// ========borders=============
+$focus-outline: 2px $secondary solid;
+$error-outline: 2px $error solid;
+$border-light: 1px $background-color solid;
+$border-error: 1px $error solid;
+$border-dark: 1px $light-gray solid;

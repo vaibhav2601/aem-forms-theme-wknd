@@ -1,8 +1,4 @@
-/* ===============Number Input================== */
-// .cmp-adaptiveform-numberinput{
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-  
-// }
+.cmp-adaptiveform-numberinput{
+  @include input;
+}
 

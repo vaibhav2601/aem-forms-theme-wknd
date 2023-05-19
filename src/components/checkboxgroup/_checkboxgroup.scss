@@ -1,122 +1,54 @@
-/* ===============Checkbox group================== */
+.cmp-adaptiveform-checkboxgroup {
+  @include container;
 
+  &__label {
+    @include label;
+  }
 
+  &__widget {
+    @include list-container;
+  }
 
+  @include description;
 
+  &__errormessage {
+    @include error-message
+  }
 
-input[type='checkbox'] {
-  height: 16px !important;
-  width: 16px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  appearance: none;
-  @include field_widget;
-  outline: none !important;
+  &-item {
+    @include list-item;
+    color: $gray;
+  }
 
+  &-item &__label {
+    @include checkbox-label;
+  }
 
+  input[type='checkbox'] {
+    @include widget;
+    height: 16px;
+    width: 16px;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &__label:hover input[type='checkbox'] {
+    background-color: white;
+  }
 
+  input[type='checkbox']:checked {
+    background-color: $primary;
+  }
 
+  input[type='checkbox']:checked::after {
+    content: '';
+    background: url(./resources/images/check.svg);
+    width: 16px;
+    height: 16px;
+  }
 }
-
-
-
-
-
-
-.cmp-adaptiveform-checkbox__label:hover input[type='checkbox'] {
-  background-color: white;
-}
-
-input[type='checkbox']:checked {
-  background-color: $accent !important;
-}
-
-input[type='checkbox']:checked::after {
-  content: '';
-  background: url(./resources/images/check.svg);
-  width: 16px;
-  height: 16px;
-}
-
-
-
-
-.cmp-adaptiveform-checkbox__label {
-  height: $tap-height;
-  display: flex;
-  align-items: center;
-  color: $dark-gray;
-  position: static;
-  opacity: 1;
-  padding: 0 $space-s;
-  column-gap: $space-s;
-  pointer-events: all;
-  cursor: pointer;
-}
-
-.cmp-adaptiveform-checkboxgroup-item {
-  @include list-item;
-}
-
-
-
-
-.cmp-adaptiveform-checkboxgroup__widget {
-  @include list-container;
-}
-
-// .cmp-adaptiveform-checkboxgroup__longdescription {
-//   color: $light-gray;
-//   background-color: $very-light-gray;
-//   font-size: $font-s;
-//   padding: 0.125rem 0.5rem;
-//   margin-top: $error-top-margin;
-//   margin-right: $field-right-margin;
-// }
-// .cmp-adaptiveform-checkboxgroup__shortdescription {
-//   font-size: $font-s;
-//   margin-top: $error-top-margin;
-// }
-// .cmp-adaptiveform-checkboxgroup__questionmark {
-//   position: absolute;
-//   display:inline-block;
-//   top:8px;
-//   right:28px;
-//   width:1rem;
-//   height:1rem;
-//   border-radius: 9px;
-//   background: url(./resources/images/question.svg) center center / cover no-repeat,#969696;
-//   cursor : pointer;
-// }
-// .cmp-adaptiveform-checkboxgroup__errormessage{
-//   color: $error;
-//   font-size: $font-s;
-// }
-.cmp-adaptiveform-checkboxgroup-item {
-  color: $gray;
-}
-
-.cmp-adaptiveform-checkboxgroup-item.HORIZONTAL {
-  margin-right: 1.5rem;
-  height: 44px;
-}
-
-.cmp-adaptiveform-checkboxgroup-item.VERTICAL {
-  margin-bottom: 1.5rem;
-}
-
-// .cmp-adaptiveform-checkboxgroup[data-cmp-valid=false]{
-//   background: $light-error;
-//   border: 0 solid $error;
-//   border-left-width: 4px;
-//   padding-left: 5px;
-// }
-// .cmp-adaptiveform-checkboxgroup[data-cmp-valid=true]{
-//   border: 0 solid $success;
-//   border-left-width: 4px;
-//   padding-left: 5px;
-// }

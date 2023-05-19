@@ -1,101 +1,17 @@
-//containers
-.cmp-adaptiveform-textinput,
-.cmp-adaptiveform-numberinput,
-.cmp-adaptiveform-datepicker,
-.cmp-adaptiveform-dropdown,
-.cmp-adaptiveform-fileinput,
-.cmp-adaptiveform-radiobutton,
-.cmp-adaptiveform-checkboxgroup {
-  @include component_container;
-
+.cmp-adaptiveform-textinput {
+  @include input;
 }
-
-div[data-cmp-is="adaptiveFormTextInput"],
-div[data-cmp-is="adaptiveFormNumberInput"],
-div[data-cmp-is="adaptiveFormDatePicker"],
-div[data-cmp-is="adaptiveFormDropDown"],
-div[data-cmp-is='adaptiveFormFileInput'],
-div[data-cmp-is="adaptiveFormRadioButton"],
-div[data-cmp-is="adaptiveFormCheckBoxGroup"] {
-  margin: $space-s 0;
-}
-
-
-
-
-
-
-input {
-  @include field_widget;
-}
-
-
-
-
-label {
-  @include field_label;
-}
-
-
-.cmp-adaptiveform-textinput__longdescription,
-.cmp-adaptiveform-numberinput__longdescription,
-.cmp-adaptiveform-datepicker__longdescription,
-.cmp-adaptiveform-dropdown__longdescription,
-.cmp-adaptiveform-checkboxgroup__longdescription,
-.cmp-adaptiveform-radiobutton__longdescription,
-.cmp-adaptiveform-fileinput__longdescription {
-  @include long_description;
-}
-
-.cmp-adaptiveform-textinput__shortdescription,
-.cmp-adaptiveform-numberinput__shortdescription,
-.cmp-adaptiveform-datepicker__shortdescription,
-.cmp-adaptiveform-dropdown__shortdescription,
-.cmp-adaptiveform-checkboxgroup__shortdescription,
-.cmp-adaptiveform-radiobutton__shortdescription,
-.cmp-adaptiveform-fileinput__shortdescription {
-  @include short_description;
-}
-
-.cmp-adaptiveform-textinput__questionmark,
-.cmp-adaptiveform-numberinput__questionmark,
-.cmp-adaptiveform-datepicker__questionmark,
-.cmp-adaptiveform-dropdown__questionmark,
-.cmp-adaptiveform-checkboxgroup__questionmark,
-.cmp-adaptiveform-radiobutton__questionmark,
-.cmp-adaptiveform-fileinput__questionmark {
-  @include question_mark;
-}
-
-
-
-.cmp-adaptiveform-textinput__errormessage,
-.cmp-adaptiveform-numberinput__errormessage,
-.cmp-adaptiveform-datepicker__errormessage,
-.cmp-adaptiveform-dropdown__errormessage,
-.cmp-adaptiveform-checkboxgroup__errormessage,
-.cmp-adaptiveform-radiobutton__errormessage,
-.cmp-adaptiveform-fileinput__errormessage {
-  @include error_message;
-}
-
-
-
-
-
-
-
-
 
 textarea.cmp-adaptiveform-textinput__widget {
   height: 80px;
   font-size: $font-m;
+  padding: $space-s;
 }
 
 textarea.cmp-adaptiveform-textinput__widget::placeholder {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 textarea.cmp-adaptiveform-textinput__widget:placeholder-shown {
-  color: $dark-gray; 
+  color: $secondary;
 }

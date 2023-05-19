@@ -1,13 +1,13 @@
-/* ===============Footer================== */
-.cmp-adaptiveform-footer{
-  color: $dark-gray;
+.cmp-adaptiveform-footer {
+  color: $secondary;
   font-size: $font-s;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: SourceSansSemiBold;
-}
-.cmp-adaptiveform-footer__text{
-  padding: .5rem 0;
+
+  &__text {
+    padding: $space-s;
+  }
 }

@@ -1,12 +1,10 @@
 //== Defaults
 html,
 body {
-  color: $dark-gray;
+  color: $secondary;
   font-size: $font-m;
   background-color: white;
-  background: url(./resources/images/background.png);
-  background-position: center center;
-  background-repeat: cover no-repeat;
+  background: url(resources/images/background.png) 100% no-repeat fixed;
   font-family: SourceSans;
   font-size: 16px;
 
