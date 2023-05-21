@@ -1,0 +1,73 @@
+.cmp-accordion {
+  position: relative;
+  margin: $space-l 0;
+  @include description;
+  &__label {
+    @include panel-label;
+  }
+  &__item {
+    border-bottom: $border-light;
+    border-width: 2px;
+  }
+
+  &__item:nth-child(2) {
+    border-top: $border-light;
+    border-width: 2px;
+  }
+
+  &__button {
+    opacity: 1;
+    height: $tap-height;
+    font-size: $font-m;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 0 $space-s;
+    color: $gray;
+
+    &:hover {
+      color: $secondary;
+      border-color: $secondary;
+
+    }
+
+    &--expanded {
+      color: $secondary;
+      // border-bottom: $border-dark;
+      margin-bottom: $space-xs;
+
+      &:hover {
+        color: $secondary;
+
+      }
+    }
+  }
+  &__button--expanded .cmp-accordion__title::after {
+    content: '−';
+  }
+  &__button:hover>.cmp-accordion__title:before {
+    border-color: $secondary;
+  }
+
+  &__title {
+    font-weight: bold;
+    display: flex;
+    column-gap: $space-s;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    @include tab-list;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+
+    &::after {
+      content: '+';
+      font-size: $font-l;
+    }
+  }
+
+  &__panel {
+    @include tab-container;
+  }
+}

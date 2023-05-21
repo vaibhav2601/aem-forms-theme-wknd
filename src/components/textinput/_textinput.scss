@@ -1,0 +1,17 @@
+.cmp-adaptiveform-textinput {
+  @include input;
+}
+
+textarea.cmp-adaptiveform-textinput__widget {
+  height: 80px;
+  font-size: $font-m;
+  padding: $space-s;
+}
+
+textarea.cmp-adaptiveform-textinput__widget::placeholder {
+  opacity: 1;
+}
+
+textarea.cmp-adaptiveform-textinput__widget:placeholder-shown {
+  color: $secondary;
+}

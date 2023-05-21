@@ -1,0 +1,29 @@
+.cmp-adaptiveform-button {
+  position: relative;
+  border: none;
+  margin: $space-s 0;
+  &__widget {
+    @include primary-button;
+  }
+  &__widget[data-cmp-enabled]:not([data-cmp-enabled=true]) {
+    background: $gray;
+    color: $very-light-gray;
+  }
+  @include description;
+  &__questionmark{
+    @media (max-width: 640px) {
+      top: -5px;
+    }
+  }
+}
+
+.submit {
+  background-color: $white;
+  position: sticky;
+  bottom: 0;
+  z-index: 12;
+  width: calc(100% + 40px);
+  & button {
+    margin-top: 0
+  }
+}

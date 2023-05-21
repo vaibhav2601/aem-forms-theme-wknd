@@ -1,0 +1,31 @@
+.cmp-tabs {
+  position: relative;
+  margin: $space-l 0;
+
+  &__label {
+    @include panel-label;
+  }
+  @include description;
+
+  &__tablist {
+    @include tab-list;
+  }
+
+  &__tab {
+    @include tab;
+
+    &:hover {
+      color: $secondary;
+    }
+
+    &--active {
+      display: flex;
+      align-items: center;
+      @include tab-active;
+    }
+  }
+
+  &__tabpanel {
+    @include tab-container;
+  }
+}

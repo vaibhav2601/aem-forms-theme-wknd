@@ -1,0 +1,45 @@
+//== Font
+$font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// ====== colors======
+$primary: #ffea00;
+$dark-primary: #ebd800;
+$secondary: rgb(22, 22, 22);
+$background-color: #eee;
+$error: #eb3c36;
+$light-error: rgba(235,60,54,0.05);
+$white: #fff;
+$gray: rgb(109, 109, 109);
+$light-gray: #969696;
+$very-light-gray: #ddd;
+$disabled-color: $background-color;
+
+
+// ====== font size======
+$font-xl: 2.618em;
+$font-l: 1.618em;
+$font-m: 1rem;
+$font-s: .75rem;
+
+// ====== space ======
+$space-xs: 4px;
+$space-s: 16px;
+$space-m: 40px;
+$space-l: 80px;
+$space-xl: 120px;
+$field-radius: 12px;
+$button-radius: 4px;
+$tap-height: 48px;
+$field-height: 48px;
+
+//== Grid
+$max_col: 12;
+
+$error_icon: url(./resources/images/error.svg);
+
+// ========borders=============
+$focus-outline: 2px $secondary solid;
+$error-outline: 2px $error solid;
+$border-light: 1px $background-color solid;
+$border-error: 1px $error solid;
+$border-dark: 1px $light-gray solid;

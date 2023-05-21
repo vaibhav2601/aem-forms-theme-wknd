@@ -1,0 +1,40 @@
+.cmp-adaptiveform-fileinput {
+  @include input;
+
+  &__widgetlabel {
+    @include secondary-button;
+    pointer-events: all;
+    margin: $space-xs 0;
+  }
+
+  &__filelist {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__fileitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $tap-height;
+    padding: 0 $space-s;
+    border-bottom: $border-light;
+  }
+
+  &__filename {
+    position: static;
+  }
+
+  &__filedelete {
+    cursor: pointer;
+  }
+
+  input[type="file"] {
+    column-gap: $space-l;
+  }
+
+  br {
+    display: none;
+  }
+}

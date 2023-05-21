@@ -1,0 +1,13 @@
+.cmp-adaptiveform-footer {
+  color: $secondary;
+  font-size: $font-s;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: SourceSansSemiBold;
+
+  &__text {
+    padding: $space-s;
+  }
+}
