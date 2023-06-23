@@ -305,6 +305,20 @@
   margin: 0;
 }
 
+@mixin vertical-tab {
+  padding: 12px 4px 12px 12px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  color: $light-gray;
+}
+
+@mixin vertical-tab-list {
+  width: 150px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 // wizard tab
 @mixin wizard-tab {
   @include tab;
