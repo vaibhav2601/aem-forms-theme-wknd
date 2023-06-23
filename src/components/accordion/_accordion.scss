@@ -43,7 +43,8 @@
     }
   }
   &__button--expanded .cmp-accordion__title::after {
-    content: '−';
+    content: url('./resources/images/dropdown.svg');
+    transform: rotate(180deg);
   }
   &__button:hover>.cmp-accordion__title:before {
     border-color: $secondary;
@@ -62,11 +63,19 @@
     margin: 0;
 
     &::after {
-      content: '+';
-      font-size: $font-l;
+      content: url('./resources/images/dropdown.svg');
     }
   }
 
+  &__header{
+    display: flex;
+  }
+  &__button{
+    flex: 1;
+  }
+  &__repeatable-buttons {
+    @include repeatable-buttons;
+  }
   &__panel {
     @include tab-container;
   }

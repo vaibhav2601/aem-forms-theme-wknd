@@ -433,6 +433,40 @@
   box-shadow: 0 8px 16px 0px rgba($color: #000000, $alpha: .02);
 }
 
+@mixin repeatability-icon-default {
+  background-color: $very-light-gray;
+  width: 1.75rem;
+  border: 0;
+  height: 1.75rem;
+  border-radius: 50%;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+@mixin repeatable-buttons {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  gap: 5px;
+  .cmp-accordion__add-button{
+    background: url('./resources/images/add-button.svg') 50% 50% no-repeat;
+    @include repeatability-icon-default;
+    &:hover {
+      background-color: $primary;
+      box-shadow: 0px 3px 12px #00000033;
+    }
+  }
+  .cmp-accordion__remove-button{
+    background: url('./resources/images/remove-button-black.svg') 50% 50% no-repeat;
+    @include repeatability-icon-default;
+    &:hover {
+      background: url('./resources/images/remove-button.svg') 50% 50% no-repeat;
+      background-color: $error;
+      box-shadow: 0px 3px 12px #00000033;
+    }
+  }
+}
+
 div[data-cmp-is="adaptiveFormTextInput"],
 div[data-cmp-is="adaptiveFormNumberInput"],
 div[data-cmp-is="adaptiveFormDatePicker"],
