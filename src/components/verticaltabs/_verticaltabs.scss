@@ -12,6 +12,9 @@
     flex: 1;
     padding: 16px 56px;
   }
+  &__label-container {
+    margin-bottom: $space-s;
+  }
   &__label {
     @include panel-label;
   }

@@ -3,6 +3,9 @@
   margin: $space-l 0;
   margin-top: $space-s;
 
+  &__label-container {
+    margin-bottom: $space-s;
+  }
   &__label {
     @include panel-label;
   }
@@ -31,5 +34,24 @@
 
   &__nextNav {
     @include wizard-next-button;
+  }
+
+  &__containerNav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+  }
+
+  &__nav {
+    &--previous {
+      @include wizard-previous-button;
+      
+    }
+    &--next {
+      @include wizard-next-button;
+    }
   }
 }

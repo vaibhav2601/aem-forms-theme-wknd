@@ -3,13 +3,17 @@
   display: flex;
   flex-direction: column;
 
+  &__label-container {
+    margin-bottom: $space-s;
+  }
+  
   &__label {
     @include panel-label;
   }
   @include description;
   &__questionmark{
     top: $space-s;
-    right: $space-s
+    inset-inline-end: $space-s;
   }
 }
 

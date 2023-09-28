@@ -20,7 +20,7 @@
     color: $gray;
   }
 
-  &-item &__label {
+  &-item &__label,&__option-label {
     @include checkbox-label;
   }
 

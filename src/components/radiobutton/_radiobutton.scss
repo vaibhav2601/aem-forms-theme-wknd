@@ -18,7 +18,7 @@
   &__option {
     @include list-item;
 
-    &__label {
+    &__label,&-label {
       position: static;
       color: black;
       opacity: 1;
