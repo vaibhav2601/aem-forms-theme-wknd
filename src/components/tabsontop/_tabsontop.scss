@@ -17,16 +17,7 @@
 
   &__tab {
     @include tab;
-
-    &:hover {
-      color: $secondary;
-    }
-
-    &--active {
-      display: flex;
-      align-items: center;
-      @include tab-active;
-    }
+    @include horizontal-tabs-interactions;
   }
 
   &__tabpanel {

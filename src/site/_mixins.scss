@@ -58,6 +58,7 @@
   column-gap: $space-s;
   pointer-events: all;
   cursor: pointer;
+  width: 100%;
   span{
     flex: 1;
   }
@@ -285,11 +286,13 @@
   padding: 0;
   counter-reset: section;
   display: flex;
-  flex-wrap: wrap;
   list-style: none;
   margin: $space-m 0 $space-s 0;
   text-transform: uppercase;
   font-family: SourceSansSemiBold;
+  max-width: 100%;
+  overflow: auto;
+  flex-wrap: nowrap;
 
 }
 
@@ -305,6 +308,7 @@
   border-radius: 0;
   padding: $space-s;
   line-height: 1;
+  white-space: nowrap;
 
 }
 
@@ -370,6 +374,18 @@
       font-size: $font-s;
       font-weight: bold;
     }
+  }
+}
+
+@mixin horizontal-tabs-interactions {
+  &:hover {
+    color: $secondary;
+  }
+
+  &--active {
+    display: flex;
+    align-items: center;
+    @include tab-active;
   }
 }
 

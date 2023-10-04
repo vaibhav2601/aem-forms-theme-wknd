@@ -7,10 +7,13 @@
   &__tabs-container{
     display: flex;
     margin-top: 16px;
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
   }
   &__tabpanel{
     flex: 1;
-    padding: 16px 56px;
+    padding: 16px 0;
   }
   &__label-container {
     margin-bottom: $space-s;
@@ -19,17 +22,30 @@
     @include panel-label;
   }
   &__tablist{
-    @include vertical-tab-list;
+    @media(min-width: 768px) {
+      @include vertical-tab-list;
+      margin-inline-end: 56px;
+    }
+    @media(max-width: 768px) {
+      @include tab-list;
+      margin: 0 0;
+    }
   }
   &__tab{
-    @include vertical-tab;
-  }
-  &__tab:hover{
-    color: $secondary;
-  }
-  &__tab--active {
-    background-color: $background-color;
-    color: $secondary;
+    @media(min-width: 768px) {
+      @include vertical-tab;
+      &:hover{
+        color: $secondary;
+      }
+      &--active {
+        background-color: $background-color;
+        color: $secondary;
+      }
+    }
+    @media(max-width: 768px) {
+      @include tab;
+      @include horizontal-tabs-interactions;  
+    }
   }
   @include description;
 }

@@ -10,7 +10,9 @@ body {
 
 }
 
-
+*,*:before,*:after {
+  box-sizing: inherit;
+}
 
 .aem-Grid {
   @include generate-grid(default, $max_col);
