@@ -1,6 +1,6 @@
 {
     "name": "@aemforms/af-wknd-theme",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Standard AEM Forms WKND theme",
     "license": "MIT License, Copyright 2022 Adobe Systems Incorporated",
     "scripts": {
